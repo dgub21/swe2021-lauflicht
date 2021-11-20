@@ -18,9 +18,8 @@ public class SpinningLedEffectTest {
         SpinningLedEffect poc = new SpinningLedEffect(buttonInstance, 1, Color.red);
 
         Assert.assertTrue(poc.next());
-
-        Mockito.verify(buttonInstance).setLed(1, Color.white);
-        Mockito.verifyNoMoreInteractions(buttonInstance);
+        Mockito.verify(buttonInstance, Mockito.times(2)).allLedsOff();
+        Mockito.verify(buttonInstance).setLed(1, Color.red);
     }
 
 }

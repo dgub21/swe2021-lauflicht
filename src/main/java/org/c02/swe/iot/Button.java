@@ -15,6 +15,8 @@ public class Button implements IButton {
 
 
     public void setLed(int position, Color color) throws ParticleException {
+        if(position < 1) throw new IllegalArgumentException();
+
         String parameter = formatColor(color.getRed()) + formatColor(color.getGreen())
                 + formatColor(color.getBlue());
         int length = String.valueOf(position).length();

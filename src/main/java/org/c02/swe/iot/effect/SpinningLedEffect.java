@@ -16,7 +16,7 @@ public class SpinningLedEffect extends AbstractEffect {
         super(button);
         this.cycles = cycles;
         this.color = color;
-        this.reset();
+        this.button.allLedsOff();
     }
 
     @Override
