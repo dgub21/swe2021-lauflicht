@@ -15,7 +15,7 @@ public class SpinningLedDemo1 {
     public static void main(String[] args) throws ParticleException {
         IButton button = new Button(api);
 
-        SpinningLedEffect effect = new SpinningLedEffect(button, 2, Color.green);
+        SpinningLedEffect effect = new SpinningLedEffect(button, 5, Color.green);
 
         while(effect.next());
         effect.reset();

@@ -20,10 +20,26 @@ public class SpinningLedEffect extends AbstractEffect {
     }
 
     @Override
-    public boolean next()  {
+    public boolean next() throws ParticleException {
+        if(currentCycle > this.cycles) return false;
+        if(currentPos > 12) return false;
+
+        this.button.allLedsOff();
+        this.button.setLed(currentPos, this.color);
+
+        if(currentPos == 12) {
+            currentCycle++;
+            currentPos = 1;
+        }
+        currentPos++;
+
+        return true;
     }
 
     @Override
-    public void reset() {
+    public void reset() throws ParticleException {
+        this.button.allLedsOff();
+        this.currentCycle = 1;
+        this.currentPos = 1;
     }
 }
